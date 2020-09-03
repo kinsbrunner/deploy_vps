@@ -94,7 +94,7 @@ echo "Installing httpx"
 GO111MODULE=on go get -u -v github.com/projectdiscovery/httpx/cmd/httpx
 
 echo "Installing nuclei"
-GO111MODULE=on go get -u -v github.com/projectdiscovery/nuclei/cmd/nuclei
+GO111MODULE=auto go get -u -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
 git clone https://github.com/projectdiscovery/nuclei-templates.git
 
 echo "Installing Nabu"
