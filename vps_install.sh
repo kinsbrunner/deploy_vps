@@ -28,8 +28,9 @@ sudo systemctl start snap
 echo 'PATH=$PATH:/snap/bin' >> ~/.bashrc
 
 echo "Installing Golang"
-wget https://dl.google.com/go/go1.13.4.linux-amd64.tar.gz
-sudo tar -xvf go1.13.4.linux-amd64.tar.gz
+#wget https://dl.google.com/go/go1.13.4.linux-amd64.tar.gz
+wget https://golang.org/dl/go1.15.2.linux-amd64.tar.gz
+sudo tar -xvf go1.15.2.linux-amd64.tar.gz
 sudo mv go /usr/local
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
