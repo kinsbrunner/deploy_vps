@@ -80,8 +80,12 @@ In a couple of minutes, your dropplet will be created with all the tools that yo
 
 Note: the dropplet get all the tools from terraform provisioning, you need to create a bash script that download all the tools and store this script in your github repository, then with the provisioning you need to call this repository to download the bash script to auto install the tools. You need to edit the script and modify the dropplet.tf file line 25 with your script to download all the tools
 
+Log in to the VPS by typing:
+>>> ssh root@<IP> -i ~/.ssh/terraform/id_rsa
+
 In order to delete the droplet, 
 >>> terraform plan -destroy -out=droplet.tfplan
+
 >>> terraform apply "droplet.tfplan"
 
 _________________________________________________________________________________________________________________________________________________________
