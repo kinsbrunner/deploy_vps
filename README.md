@@ -1,5 +1,5 @@
 # deploy_vps
-Deploying digital ocean vps with terraform
+Deploying digital ocean vps with terraform.
 
 
 If you’re on macOS or Linux, you can download Terraform with curl.
@@ -20,7 +20,7 @@ On Linux, add the path to the file .bashrc:
 nano ~/.bashrc
 
 To append Terraform’s path to your PATH, add the following line at the end of the file:
-export PATH=$PATH:~/opt/terraform/bin
+export PATH=$PATH:~/opt/terraform
 
 Save the file and exit the editor.
 
@@ -71,13 +71,22 @@ ________________________________________________________________________________
 Now, you must create your public and private key ssh to use when you need to connect safely to the server with ssh. save your keys in the directory "~/.ssh/terraform/id_rsa"
 
 finally you need to create your dropplet creation plan with the command
-terraform plan -out=droplet.tfplan
+>>> terraform plan -out=droplet.tfplan
 
 and then, execute this file to create the dropplet with the command 
-terraform apply "droplet.tfplan" 
-
+>>> terraform apply "droplet.tfplan" 
 
 In a couple of minutes, your dropplet will be created with all the tools that you need.
 
-
 Note: the dropplet get all the tools from terraform provisioning, you need to create a bash script that download all the tools and store this script in your github repository, then with the provisioning you need to call this repository to download the bash script to auto install the tools. You need to edit the script and modify the dropplet.tf file line 25 with your script to download all the tools
+
+In order to delete the droplet, 
+>>> terraform plan -destroy -out=droplet.tfplan
+>>> terraform apply "droplet.tfplan"
+
+_________________________________________________________________________________________________________________________________________________________
+
+If using TMUX, the relevant commands are:
+-> Ctrl + b + z: minimize current session
+-> tmux ls: see the list of available sessions
+-> tmux attach -t <session>: to re-open the specified session
